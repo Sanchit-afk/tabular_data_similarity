@@ -1,0 +1,72 @@
+{% extends "public/templates/public_template.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block main %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
+  }
+</style>
+
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-2 mb-4">Similarity Using Different Methods is as Follows</h3>
+        <div class="card bg-light">
+          <div class="card-body">
+            <h3 class="text-left">Cosine Similarity is {{result}} %</h3>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="text-left">Pearson's Correlation is {{result1}} %</h3>
+          </div>
+        </div>
+        <div class="card bg-light">
+          <div class="card-body">
+            <h3 class="text-left">Spearman's Correlation is {{result2}} %</h3>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="text-left">Similarity using BERT Embeddings is {{result3}} %</h3>
+          </div>
+        </div>
+        
+        
+        <table class="table">
+          <h3 class="mt-5">Table 1</h3>
+          {% for table in tables %}
+          <!-- {{titles[loop.index]}} -->
+          {{ table|safe }}
+          {% endfor %}
+        </table>
+        <table class="table">
+          <h3 class="mt-5">Table 2</h3>
+          {% for table in tabless %}
+          <!-- {{titles[loop.index]}} -->
+          {{ table|safe }}
+          {% endfor %}
+        </table>
+        <div class="mt-4 col-md-12">
+          <h1>              </h1>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}
